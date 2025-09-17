@@ -15,7 +15,7 @@ object pepita {
 		return energia
 	}
 	method image(){
-		return "pepita.png"
+		return image
 	}
 
 	method estaEnNido(){

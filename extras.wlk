@@ -26,6 +26,7 @@ object nido{
 	}
     method chocasteConPepita(){
         pepita.image("pepita-grande.png")
+        //hacer que gane 
     }
 }
 
@@ -35,6 +36,7 @@ object muro{
 	}
     method image(){
         return "muro.png"
+        //hacer que pierda
     }
     
 }
