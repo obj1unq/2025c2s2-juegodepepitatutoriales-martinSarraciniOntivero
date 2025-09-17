@@ -2,6 +2,7 @@ import extras.*
 object pepita {
 	var energia = 500
 	var property position = game.at(0,1)
+	var property image = "pepita.png" 
 	method comer(comida) {
 		energia = energia + comida.energiaQueOtorga()
 	}
@@ -14,20 +15,9 @@ object pepita {
 		return energia
 	}
 	method image(){
-		return if(self.estaEnNido()){
-			"pepita-grande.png"	
-		}else if(self.estaConSilvestre()){
-			"pepita-gris.png"
-	
-		}else{
-			"pepita.png"
-		}
-}
-	method perdi(){
-		if(self.estaConSilvestre() and self.energia() < 11){
-			game.say(self, "perdi")
-		}
+		return "pepita.png"
 	}
+
 	method estaEnNido(){
 		return position == nido.position()
 	}
@@ -35,26 +25,25 @@ object pepita {
 		return self.position() == silvestre.position()
 	}
 	method mover(direccion) { 
-        if (self.hayMuroEnDireccion(direccion)) {
+        if (not self.hayMuroEnDireccion(direccion) and self.hayBordeMapa(direccion) ) {
                 self.validarEnergia()
                 position = direccion.siguiente(self) 
                 self.volar(1)
-				self.gane()
-				self.perdi()
         }
     }
 	method validarEnergia(){
-		return energia >= 11
-	}
-	method hayMuroEnDireccion(direccion){
-		return direccion == muro.position()
-	}
-	method gane(){
-		if( self.estaEnNido()){
-			game.say(self,"GANE")
+		if( energia <= 11){
+			self.error("no tiene energia para volar")
 		}
 	}
+	method hayMuroEnDireccion(direccion){
+		return direccion.siguiente(self) == muro.position()
+	}
+	method hayBordeMapa(direccion){
+		return direccion.siguiente(self).x().between(0, 9) and  direccion.siguiente(self).y().between(0, 9)
+	}
+
 }
-/* dos problemas: no aparece el muro en el visual y pepita no se mueve*/
+
 
 

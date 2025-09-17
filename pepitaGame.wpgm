@@ -12,10 +12,11 @@ program pepitaGame {
 	game.addVisual(silvestre)
 	game.addVisual(pepita)
 	game.addVisual(muro)
-	/*game.addVisualCharacter(pepita)*/
+	//game.addVisualCharacter(pepita)
 	keyboard.a().onPressDo({pepita.mover(izquierda)})
     keyboard.d().onPressDo({pepita.mover(derecha)})
     keyboard.s().onPressDo({pepita.mover(abajo)})
     keyboard.w().onPressDo({pepita.mover(arriba)})
+	game.onCollideDo(pepita, {otro => otro.chocasteConPepita()})
 	game.start()	
 }
