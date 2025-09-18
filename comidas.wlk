@@ -11,7 +11,7 @@ object manzana {
     } 
     method chocasteConPepita(){
         pepita.comer(self)
-        self.image("")
+        game.removeVisual(self)
     }
 	method energiaQueOtorga() {
 		return base * madurez	
@@ -34,7 +34,7 @@ object alpiste {
     }
     method chocasteConPepita(){
         pepita.comer(self)
-        self.image("")
+        game.removeVisual(self)
     }
 }
 

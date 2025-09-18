@@ -14,8 +14,8 @@ object silvestre{
     }
     method chocasteConPepita(){
         pepita.image("pepita-gris.png")
-        game.onTick(2000, "perdio pepita", {game.stop()})
-        pepita.text("PERDI")
+        game.schedule(2000, {game.stop()})
+        pepita.say("PERDI")
     }
 }
 
@@ -28,8 +28,8 @@ object nido{
 	}
     method chocasteConPepita(){
         pepita.image("pepita-grande.png")
-        game.onTick(2000, "perdio pepita", {game.stop()})
-        pepita.text("GANE") 
+        game.schedule(2000, {game.stop()})
+        pepita.say("GANE") 
     }
 }
 

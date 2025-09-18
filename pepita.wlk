@@ -3,10 +3,10 @@ object pepita {
 	var energia = 500
 	var property position = game.at(0,1)
 	var property image = "pepita.png" 
-	var property text = ""
+	var property say = ""
 	const property obstaculos = [muro1,muro2,muro3] 
-	method text(){
-		return text
+	method say(){
+		return say
 	}
 	method comer(comida) {
 		energia = energia + comida.energiaQueOtorga()
@@ -25,7 +25,11 @@ object pepita {
 	method gane(){
 		
 	}
-	
+	method gravedad(){
+		if(not self.hayMuroEnSiguienteDireccion(abajo) and self.hayBordeMapa(abajo)){
+			position = abajo.siguiente(self)
+		}
+	}
 	
 	method mover(direccion) { 
         if (not self.hayMuroEnSiguienteDireccion(direccion) and self.hayBordeMapa(direccion) ) {
