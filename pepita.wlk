@@ -1,15 +1,18 @@
 import extras.*
+import comidas.*
+import pepitaGame.*
+import randomizer.*
 object pepita {
 	var energia = 500
 	var property position = game.at(0,1)
 	var property image = "pepita.png" 
-	var property say = ""
 	const property obstaculos = [muro1,muro2,muro3] 
-	method say(){
-		return say
+	method text(){
+		return energia.toString()
 	}
 	method comer(comida) {
 		energia = energia + comida.energiaQueOtorga()
+		comidas.remover(comida)
 	}
 
 	method volar(kms) {
@@ -59,6 +62,8 @@ object pepita {
 	}
 
 }
+
+
 
 
 

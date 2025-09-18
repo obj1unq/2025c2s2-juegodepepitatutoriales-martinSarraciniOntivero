@@ -1,11 +1,15 @@
 import wollok.game.*
 import pepita.*
 import extras.*
-object manzana {
+import randomizer.*
+class Manzana {
 	const base= 5
 	var madurez = 1
 	var property image = "manzana.png" 
-    var property position = game.at(4,5)
+    const position 
+    method position(){
+        return position
+    }
     method image(){
         return image
     } 
@@ -23,9 +27,13 @@ object manzana {
 
 }
 
-object alpiste {
+class Alpiste {
 	var property image = "alpiste.png" 
-    var property position = game.at(6,5)
+    const position    
+
+    method position(){
+        return position
+    }
     method image(){
         return image
     } 
@@ -38,3 +46,26 @@ object alpiste {
     }
 }
 
+object comidas{
+    const comidasTablero = #{}
+    const factory = []
+    method maximo(){
+        return 3
+    }
+
+    method comenzar(){
+        game.onTick(3000, "COMIDAS", {self.nuevaComida()})
+    }
+    method  nuevaComida(){
+        if(comidasTablero.size() < self.maximo()){
+            const comida = new Manzana(position = randomizer.position())
+            game.addVisual(comida)
+            comidasTablero.add(comida)
+        }
+    }
+    method remover(comida){
+        if(comidasTablero.contains(comida)){
+            game.removeVisual(comida)
+        }
+    }
+}

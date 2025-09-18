@@ -2,6 +2,7 @@ import wollok.game.*
 import pepita.*
 import extras.*
 import comidas.*
+import randomizer.*
 program pepitaGame {
 	game.title("Pepita") 	//Valor por defecto "Wollok Game"
 	game.height(10) 		//valor por defecto 5
@@ -15,13 +16,12 @@ program pepitaGame {
 	game.addVisual(muro1)
 	game.addVisual(muro2)
 	game.addVisual(muro3)
-	game.addVisual(manzana)
-	game.addVisual(alpiste)
 	keyboard.a().onPressDo({pepita.mover(izquierda)})
     keyboard.d().onPressDo({pepita.mover(derecha)})
     keyboard.s().onPressDo({pepita.mover(abajo)})
     keyboard.w().onPressDo({pepita.mover(arriba)})
 	game.onCollideDo(pepita, {otro => otro.chocasteConPepita()})
 	game.onTick(800, "gravedad", {pepita.gravedad()})
+	comidas.comenzar()
 	game.start()	
 }

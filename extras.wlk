@@ -14,8 +14,8 @@ object silvestre{
     }
     method chocasteConPepita(){
         pepita.image("pepita-gris.png")
-        game.schedule(2000, {game.stop()})
-        pepita.say("PERDI")
+        game.schedule(60, {game.stop()})
+        //epita.say("PERDI")
     }
 }
 
@@ -28,8 +28,8 @@ object nido{
 	}
     method chocasteConPepita(){
         pepita.image("pepita-grande.png")
-        game.schedule(2000, {game.stop()})
-        pepita.say("GANE") 
+        game.schedule(60, {game.stop()})
+        //pepita.say("GANE") 
     }
 }
 
@@ -90,6 +90,7 @@ object arriba{
         return personaje.position().up(1)
     }
 }
+
 
 
 
