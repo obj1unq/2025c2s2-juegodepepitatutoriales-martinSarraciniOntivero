@@ -5,9 +5,6 @@ object silvestre{
     method image(){
         return "silvestre.png"
     }
-   /* method minimoParaAvanzar(){
-        return position == game.at(4,0)
-    }*/
     method position(){
          if(pepita.position().x().between(0, 3)){
             return position
@@ -17,3 +14,41 @@ object silvestre{
     }
 }
 
+object nido{
+	method position(){
+		return game.at(8,7)
+	}
+	method image(){
+		return "nido.png"	
+	}
+}
+
+object muro{
+	method position(){
+		return game.center()
+	}
+    method iamge(){
+        return "muro.png"
+    }
+}
+
+object izquierda{
+    method siguiente(personaje){
+        return personaje.position().left()
+    }
+}
+object derecha{
+    method siguiente(personaje){
+        return personaje.position().right()
+    }
+}
+object abajo{
+    method siguiente(personaje){
+        return personaje.position().down()
+    }
+}
+object arriba{
+    method siguiente(personaje){
+        return personaje.position().up()
+    }
+}
