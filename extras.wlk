@@ -14,6 +14,8 @@ object silvestre{
     }
     method chocasteConPepita(){
         pepita.image("pepita-gris.png")
+        game.onTick(2000, "perdio pepita", {game.stop()})
+        pepita.text("PERDI")
     }
 }
 
@@ -26,20 +28,47 @@ object nido{
 	}
     method chocasteConPepita(){
         pepita.image("pepita-grande.png")
-        //hacer que gane 
+        game.onTick(2000, "perdio pepita", {game.stop()})
+        pepita.text("GANE") 
     }
 }
 
-object muro{
+object muro1{
 	method position(){
 		return game.center()
 	}
     method image(){
         return "muro.png"
-        //hacer que pierda
+        
     }
     
 }
+
+object muro2{
+	method position(){
+		return game.at(5,7)
+	}
+    method image(){
+        return "muro.png"
+        
+    }
+    
+}
+
+object muro3{
+	method position(){
+		return game.at(5,6)
+	}
+    method image(){
+        return "muro.png"
+        
+    }
+    
+}
+
+
+
+
 
 object izquierda{
     method siguiente(personaje){
@@ -61,3 +90,7 @@ object arriba{
         return personaje.position().up(1)
     }
 }
+
+
+
+
